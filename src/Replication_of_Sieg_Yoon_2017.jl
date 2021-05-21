@@ -1,6 +1,6 @@
 # Replication code for Sieg and Yoon (2017)
 
-module Replication_of_Sieg_Yoon_2017
+#module Replication_of_Sieg_Yoon_2017
 
 using DataFrames
 using CSV
@@ -768,4 +768,4 @@ else
     smm12(x0)
 end=#
 
-end
+#end

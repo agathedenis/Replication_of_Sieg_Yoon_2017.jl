@@ -16,8 +16,7 @@ Create pages: Why this paper, Summary of the paper, Replication results at a gla
 
 <a href="./article-summary"> Article Summary </a> 
 ```@autodocs
-Modules = [testdocs]
-```
 Modules = [Replication_of_Sieg_Yoon_2017]
+```
 
 end
