@@ -131,9 +131,11 @@ end
 # State names: those limited to 2 consecutive terms (NM and OR changed it)
 statename = ["AL"; "AZ"; "CO"; "FL"; "GA"; "IN"; "KS"; "KY"; "LA"; "ME"; "MD"; "NE"; "NJ"; "NM"; "NC"; "OH"; "OK"; "OR"; "PA"; "RI"; "SC"; "SD"; "TN"; "WV"]
 
-plot(beta1,beta2,seriestype= :scatter, legend= false, label = statename,
-    title = "State Fixed Effects (simulated)", ylabel="Ideology", xlabel="Competence",
-    series_annotations=(text.(statename)), markersize=10, color = :yellow)
+fig1a = plot(beta1,beta2,seriestype= :scatter, legend= false, label = statename,
+        title = "State Fixed Effects (simulated)", ylabel="Ideology", xlabel="Competence",
+        series_annotations=(text.(statename)), markersize=10, color = :yellow)
+display(fig1a)
+png(fig1a,"./docs/fig1a")
 
 # True values
 ability = CSV.read("./src/ability.csv", DataFrame; header=false)
@@ -149,10 +151,11 @@ mu_r = mu_d
 se_d = [0, 0.026, 0.006, 0.005, 0.006]
 se2_d = [0, 0.094, 0.029]
 
-plot(beta1,beta2,seriestype= :scatter, legend= false, label = statename,
-    title = "State Fixed Effects (real)", ylabel="Ideology", xlabel="Competence",
-    series_annotations=(text.(statename)), markersize=10, color = :yellow)
-
+fig1b = plot(beta1,beta2,seriestype= :scatter, legend= false, label = statename,
+        title = "State Fixed Effects (real)", ylabel="Ideology", xlabel="Competence",
+        series_annotations=(text.(statename)), markersize=10, color = :yellow)
+display(fig1b)
+png(fig1b,"./docs/fig1b")
 # Data moments
 
 d_share = sum(min.(party2 .==1, election_number .==3))/sum(min.(party2 .==1, election_number .>= 2))
@@ -339,9 +342,12 @@ fun1 = y -> (fxr[1] .+ fxr[2]*(y.-fxr[6]) .+ fxr[3]*(y.-fxr[6]).^2 .+ fxr[4]*(y.
 fun3 = y -> (fxd[1] .+ fxd[2]*(y.-fxd[6]) .+ fxd[3]*(y.-fxd[6]).^2 .+ fxd[4]*(y.-fxd[6]).^3 .+fxd[5]*(y.-fxd[6]).^4).^2 .*exp.(-(y.-fxd[6]).^2/fxd[7]^2)
 
 plot(t3,fun1(t3), xlabel="Ideology", xlims=(-4,4), ylims=(0,0.6), title="Distribution of ideology by party",color="red", label="Republican")
-plot!(t3,fun3(t3), line= :dash, label="Democrat", color="blue")
+fig2 = plot!(t3,fun3(t3), line= :dash, label="Democrat", color="blue")
+display(fig2)
+png(fig2, "./docs/fig2")
 plot(t3,f15(t3), xlims=(-4,4), ylims=(0,0.6), ylabel="Competence", title="Distribution of competence by party",color="red", label="Republican")
-plot!(t3,f16(t3), line= :dash, label="Democrat", color="blue")
+fig3 = plot!(t3,f16(t3), line= :dash, label="Democrat", color="blue")
+png(fig3, "./docs/fig3")
 
 # 2nd stage using SMM
 
