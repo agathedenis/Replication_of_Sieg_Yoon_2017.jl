@@ -1,7 +1,5 @@
 # Replication code for Sieg and Yoon (2017)
 
-module Replication_of_Sieg_Yoon_2017
-
 using DataFrames
 using CSV
 using Statistics
@@ -14,7 +12,6 @@ using JuMP
 using Distributions
 using QuadGK
 using NLopt
-using MAT
 
 #include("HelperFunctions.jl")
 
@@ -134,6 +131,10 @@ end
 # State names: those limited to 2 consecutive terms (NM and OR changed it)
 statename = ["AL"; "AZ"; "CO"; "FL"; "GA"; "IN"; "KS"; "KY"; "LA"; "ME"; "MD"; "NE"; "NJ"; "NM"; "NC"; "OH"; "OK"; "OR"; "PA"; "RI"; "SC"; "SD"; "TN"; "WV"]
 
+plot(beta1,beta2,seriestype= :scatter, legend= false, label = statename,
+    title = "State Fixed Effects (real)", ylabel="Ideology", xlabel="Competence",
+    series_annotations=(text.(statename)), markersize=10, color = :yellow)
+
 # True values
 ability = CSV.read("./src/ability.csv", DataFrame; header=false)
 ideology = CSV.read("./src/ideology.csv", DataFrame; header=false)
@@ -149,7 +150,8 @@ se_d = [0, 0.026, 0.006, 0.005, 0.006]
 se2_d = [0, 0.094, 0.029]
 
 plot(beta1,beta2,seriestype= :scatter, legend= false, label = statename,
-    title = "State Fixed Effects (real)", ylabel="Ideology", xlabel="Competence")
+    title = "State Fixed Effects (real)", ylabel="Ideology", xlabel="Competence",
+    series_annotations=(text.(statename)), markersize=10, color = :yellow)
 
 # Data moments
 
@@ -767,5 +769,3 @@ else
     op_print_results = 1
     smm12(x0)
 end=#
-
-end
