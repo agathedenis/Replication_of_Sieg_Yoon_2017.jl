@@ -18,7 +18,7 @@ Throughout the process of replicating the paper and discovering different progra
 
 ## Summary of the paper
 
-In their paper titled ?Estimating Dynamic Games of Electoral Competition to Evaluate Term Limits in U.S. Gubernatorial Elections?, Sieg and Yoon develop a model of political competition in the American gubernatorial elections and offer a comprehensive welfare analysis of term limits. 
+In their paper titled Estimating Dynamic Games of *Electoral Competition to Evaluate Term Limits in U.S. Gubernatorial Elections*, Sieg and Yoon develop a model of political competition in the American gubernatorial elections and offer a comprehensive welfare analysis of term limits. 
 
 According to the theoretical literature in political economy, electoral competitions are usually modelled as dynamic games with asymmetric information and perfect monitoring. The primary objective of this paper is therefore to find feasible solution to identify and estimate these types of dynamic games. This paper proposes to use standard semi-parametric techniques to model a class of dynamic games. The empirical approach provides novel quantitative insights into the trade-off that voters face between ideology and competence, the differences of those among parties and states, as well as the differences in preferences between political candidates and voters. Moreover, the authors aim to quantitatively investigate the relative importance of term limit and offer a comprehensive analysis of its impact on electoral outcomes and voters? welfare.
 
@@ -36,18 +36,18 @@ Below are the differences between our approach and the authors'.
 ![Fig3](./fig3.png)
 
 In short, these are the results for the first part, which estimates the state fixed effects:
-| Estimate | SE
+| Estimate |Â SE
 --- | --- | ---
 Ideology | |
-Expenditures | 1 |
+ExpendituresÂ | 1 |
 Taxes | 0.703 | 0.026
-Economic growth | -1.047 | 0.006
-Debt costs | 0.111 | 0.005
-Workers' compensation | -0.018 | 0.006
-Competence | |
-Economic growth | 1 |
-Debt costs | -0.400 | 0.094
-Workers' compensation | -0.060 | 0.029
+Economic growth |Â -1.047 | 0.006
+Debt costs |Â 0.111 | 0.005
+Workers' compensation | -0.018Â | 0.006
+Competence |Â |
+Economic growth |Â 1 |
+Debt costs |Â -0.400 | 0.094
+Workers' compensation | -0.060Â | 0.029
 
 ```@autodocs
 Modules = [Replication_of_Sieg_Yoon_2017]
