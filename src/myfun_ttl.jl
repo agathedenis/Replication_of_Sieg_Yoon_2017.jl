@@ -8,10 +8,10 @@ using QuadGK
 function myfun_ttl(x)
     # Calculate the system of equations in 2-term limit case
     # Global variables
-    global beta p_d lambda ecost_d ecost_r p_all_r p_all_d sigma_pd
+    #=global beta p_d lambda ecost_d ecost_r p_all_r p_all_d sigma_pd
     global n_app pdf_d pdf_r a_grid 
     global fxr fxd
-    global y_r y_d
+    global y_r y_d=#
 
     n = n_app
     
@@ -65,10 +65,10 @@ function myfun_ttl(x)
     
     v_0 = v_d*p_d + (1-p_d)*v_r
     
-    fun1 = y - > (fxr[1] + fxr[2]*(y-fxr[6]) + fxr[3]*(y-fxr[6]).^2 + fxr[4]*(y-fxr[6]).^3 +fxr[5]*(y-fxr[6]).^4).^2.*exp(-(y-fxr[6]).^2/fxr[7]^2) 
-    fun2 = y - > abs(y).*(fxr[1] + fxr[2]*(y-fxr[6]) + fxr[3]*(y-fxr[6]).^2 + fxr[4]*(y-fxr[6]).^3 +fxr[5]*(y-fxr[6]).^4).^2.*exp(-(y-fxr[6]).^2/fxr[7]^2) 
-    fun3 = y - > (fxd[1] + fxd[2]*(y-fxd[6]) + fxd[3]*(y-fxd[6]).^2 + fxd[4]*(y-fxd[6]).^3 +fxd[5]*(y-fxd[6]).^4).^2.*exp(-(y-fxd[6]).^2/fxd[7]^2) 
-    fun4 = y - > abs(y).*(fxd[1] + fxd[2]*(y-fxd[6]) + fxd[3]*(y-fxd[6]).^2 + fxd[4]*(y-fxd[6]).^3 +fxd[5]*(y-fxd[6]).^4).^2.*exp(-(y-fxd[6]).^2/fxd[7]^2) 
+    fun1 = y -> (fxr[1] + fxr[2]*(y-fxr[6]) + fxr[3]*(y-fxr[6]).^2 + fxr[4]*(y-fxr[6]).^3 +fxr[5]*(y-fxr[6]).^4).^2 .*exp(-(y-fxr[6]).^2/fxr[7]^2) 
+    fun2 = y -> abs(y).*(fxr[1] + fxr[2]*(y-fxr[6]) + fxr[3]*(y-fxr[6]).^2 + fxr[4]*(y-fxr[6]).^3 +fxr[5]*(y-fxr[6]).^4).^2 .*exp(-(y-fxr[6]).^2/fxr[7]^2) 
+    fun3 = y -> (fxd[1] + fxd[2]*(y-fxd[6]) + fxd[3]*(y-fxd[6]).^2 + fxd[4]*(y-fxd[6]).^3 +fxd[5]*(y-fxd[6]).^4).^2 .*exp(-(y-fxd[6]).^2/fxd[7]^2) 
+    fun4 = y -> abs(y).*(fxd[1] + fxd[2]*(y-fxd[6]) + fxd[3]*(y-fxd[6]).^2 + fxd[4]*(y-fxd[6]).^3 +fxd[5]*(y-fxd[6]).^4).^2 .*exp(-(y-fxd[6]).^2/fxd[7]^2) 
     
     
     p_all_r = quadgk(fun2,-Inf,Inf)[1]
