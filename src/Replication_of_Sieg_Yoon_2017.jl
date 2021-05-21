@@ -400,7 +400,7 @@ if op_estimation==0 && op_model==1
     op_welfare          = 1 
 end
 
-# Simulated method of moments
+#= Simulated method of moments
 function smm12(x)
     # Read Parameters
     if op_model == 1
