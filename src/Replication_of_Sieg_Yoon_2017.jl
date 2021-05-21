@@ -1,6 +1,6 @@
 # Replication code for Sieg and Yoon (2017)
 
-#module Replication_of_Sieg_Yoon_2017
+module Replication_of_Sieg_Yoon_2017
 
 using DataFrames
 using CSV
@@ -51,7 +51,7 @@ mu2_d = zeros(1,5)
 mu_r = zeros(1,5)
 mu2_r = zeros(1,5)
 
-itr = 1
+global itr = 1
 dist = 1
 while dist > 1e-10 
     loading_old = sum([mu_d[2], mu_d[3], mu_d[4], mu_d[5], mu2_d[4], mu2_d[5]])
@@ -128,7 +128,7 @@ while dist > 1e-10
     mu2_r = mu2_d
     loading_new = sum([mu_d[2], mu_d[3], mu_d[4], mu_d[5], mu2_d[4], mu2_d[5]])
     dist = max(abs(loading_old - loading_new))
-    itr = itr + 1
+    global itr = itr + 1
 end
 
 # State names: those limited to 2 consecutive terms (NM and OR changed it)
@@ -768,4 +768,4 @@ else
     smm12(x0)
 end=#
 
-#end
+end
