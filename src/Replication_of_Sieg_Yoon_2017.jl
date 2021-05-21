@@ -132,7 +132,7 @@ end
 statename = ["AL"; "AZ"; "CO"; "FL"; "GA"; "IN"; "KS"; "KY"; "LA"; "ME"; "MD"; "NE"; "NJ"; "NM"; "NC"; "OH"; "OK"; "OR"; "PA"; "RI"; "SC"; "SD"; "TN"; "WV"]
 
 plot(beta1,beta2,seriestype= :scatter, legend= false, label = statename,
-    title = "State Fixed Effects (real)", ylabel="Ideology", xlabel="Competence",
+    title = "State Fixed Effects (simulated)", ylabel="Ideology", xlabel="Competence",
     series_annotations=(text.(statename)), markersize=10, color = :yellow)
 
 # True values
