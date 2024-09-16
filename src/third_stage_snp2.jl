@@ -138,7 +138,7 @@ axis([-8 8 0 0.4])
 
 
 if op_welfare == 1 # Calculate welfare under 2-term limit and no term limit
-disp('welfare analysis')
+display('welfare analysis')
 grid = transpose(collect(LinRange(-6, 6, 101)))
 vv = zeros(2,101)
 vv_ntl = zeros(2,101)

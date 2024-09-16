@@ -52,7 +52,7 @@ function smm12(x)
     # Find election standards
     find_standard_ttl
     if op_valuefunction == 1
-        disp('draw value function')    
+        display('draw value function')    
         draw_value_function
     end
     # Calculate Moments and Simulation of Policyes
@@ -265,11 +265,11 @@ function smm12(x)
     if op_print_results == 1  
     format short
     
-    disp('model fits')
-    disp(g[1:2,:])
-    disp(g[6:9,:])
-    disp(g[4:5,:])
-    disp(g[3,:])
+    display('model fits')
+    display(g[1:2,:])
+    display(g[6:9,:])
+    display(g[4:5,:])
+    display(g[3,:])
     
     pr1_r = transpose(collect(LinRange(0,1,n_app)))
     pr1_d = transpose(collect(LinRange(0,1,n_app)))
@@ -285,15 +285,15 @@ function smm12(x)
         pr2_d[i] = quadgk(fun3,l_d[i]-y_d[i],u_d[i]+y_d[i])-pr1_d[i][1]
     end
         
-    disp('centrist D and R')
-    disp(sum(pr1_d.*pdf_d) )
-    disp(sum(pr1_r.*pdf_r) )
-    disp('Moderates D and R')
-    disp(sum(pr2_d.*pdf_d) )
-    disp(sum(pr2_r.*pdf_r) )
-    disp('Extremist D and R')
-    disp(sum((1-pr1_d-pr2_d).*pdf_d) )
-    disp(sum((1-pr1_r-pr2_r).*pdf_r) )
+    display('centrist D and R')
+    display(sum(pr1_d.*pdf_d) )
+    display(sum(pr1_r.*pdf_r) )
+    display('Moderates D and R')
+    display(sum(pr2_d.*pdf_d) )
+    display(sum(pr2_r.*pdf_r) )
+    display('Extremist D and R')
+    display(sum((1-pr1_d-pr2_d).*pdf_d) )
+    display(sum((1-pr1_r-pr2_r).*pdf_r) )
         
     figure    
     plot(a_grid,u_d,'Color','b','LineStyle','--','LineWidth',2)
@@ -328,7 +328,7 @@ function smm12(x)
     p5_v = p5[:]*std_last[5]
     a_v = a_grid(a)
     x_v = x
-    disp('with term limit')
+    display('with term limit')
     mean_v = zeros(7,1)
     mean_v[1] = mean(p1_v)
     mean_v[2] = mean(p2_v)
@@ -337,28 +337,28 @@ function smm12(x)
     mean_v[5] = mean(p5_v)
     mean_v[6] = mean(x_v)
     mean_v[7] = mean(a_v)
-    disp('mean ability')
-    disp(mean_v[7])
-    disp('mean policy')
-    disp(mean_v[1:5])
-    disp('std')
+    display('mean ability')
+    display(mean_v[7])
+    display('mean policy')
+    display(mean_v[1:5])
+    display('std')
     std_v = zeros(5,1)
     std_v[1] = std(p1_v)
     std_v[2] = std(p2_v)
     std_v[3] = std(p3_v)
     std_v[4] = std(p4_v)
     std_v[5] = std(p5_v)
-    disp(std_v)
+    display(std_v)
     
     end
     # Option to run third stage estimation
     if op_policyexp == 1     
-        disp('solve model without term limit')
+        display('solve model without term limit')
         ntl_snp2
     end
 
     if op_thirdstage == 1
-        disp('estimate third stage')    
+        display('estimate third stage')    
         third_stage_snp2
     end
     
